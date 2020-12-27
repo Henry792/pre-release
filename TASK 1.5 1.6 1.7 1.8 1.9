@@ -1,0 +1,20 @@
+TASK 1.5
+hash = unique_code * 300
+
+TASK 1.7
+FUNCTION Hash(unique_code) RETURNS INTEGER
+    RETURN unique_code * 30
+
+TASK 1.8
+OPENFILE 'BookFile' FOR RANDOM
+Address ← Hash(BookRecord.UniqueCode)
+SEEK 'BookFile', Address
+PUTRECORD 'BookFile', BookRecord
+CLOSEFILE "BookFile"
+
+TASK 1.9
+OPENFILE 'BookFile' FOR RANDOM
+Address ← Hash(UniqueCode)
+SEEK 'BookFile', Address
+GETRECORD 'BookFile', BookRecord
+CLOSEFILE "BookFile"
